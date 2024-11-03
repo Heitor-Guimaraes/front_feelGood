@@ -12,7 +12,7 @@ export default function GestaoCliente() {
     const [array, setArray] = useState([]);
 
     async function a() {
-        const a = await axios.get('http://localhost:8080/buscar');
+        const a = await axios.get('http://4.172.207.208:5005/buscar');
         const value = a.data;
         setArray(value);
         console.log(array);

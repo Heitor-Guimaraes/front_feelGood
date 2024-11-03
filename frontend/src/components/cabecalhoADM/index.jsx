@@ -1,3 +1,4 @@
+
 import './index.scss';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +22,7 @@ export default function CabecalhoADM() {
     }, []);
 
     const a = async () => {
-        const x = await axios.get(`http://localhost:8080/readToken/${JSON.parse(localStorage.getItem('adm-logado')).token}`);
+        const x = await axios.get(`http://4.172.207.208:5005/readToken/${JSON.parse(localStorage.getItem('adm-logado')).token}`);
         setInfos(x.data);
     }
 

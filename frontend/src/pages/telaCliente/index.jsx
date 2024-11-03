@@ -35,9 +35,9 @@ export default function TelaCliente() {
     }
 
     async function findImg() {
-        const x = await axios.get(`http://localhost:8080/findImgCliente/${idCliente}`);
+        const x = await axios.get(`http://4.172.207.208:5005/findImgCliente/${idCliente}`);
         if (x.data.nm_foto != null) {
-          const z = await axios.get(`http://localhost:8080/img/${x.data.nm_foto}`)
+          const z = await axios.get(`http://4.172.207.208:5005/img/${x.data.nm_foto}`)
           setNameImg(z.data.url);
           console.log(z.data.url);
         } else {
@@ -81,13 +81,13 @@ export default function TelaCliente() {
                 const formData = new FormData();
                 formData.append('img', foto);
             
-                const x = await axios.post(`http://localhost:8080/multer`, formData, {
+                const x = await axios.post(`http://4.172.207.208:5005/multer`, formData, {
                     headers: {
                         "Content-Type": "multparts/formdata"
                     }
                 });
 
-                const z = axios.put(`http://localhost:8080/addPictureCliente/${x.data.fl}/${idCliente}`);
+                const z = axios.put(`http://4.172.207.208:5005/addPictureCliente/${x.data.fl}/${idCliente}`);
 
                 setShowEditPopup(false);
                 toast.success('Foto alterada!');
@@ -95,7 +95,7 @@ export default function TelaCliente() {
             }
 
             if(nome.length > 0  && email.length > 0 && telefone.length > 0 ) {
-                await axios.put(`http://localhost:8080/atualizar/cliente/${encodeURIComponent(nome)}/${encodeURIComponent(email)}/${encodeURIComponent(telefone)}/${idCliente}`);
+                await axios.put(`http://4.172.207.208:5005/atualizar/cliente/${encodeURIComponent(nome)}/${encodeURIComponent(email)}/${encodeURIComponent(telefone)}/${idCliente}`);
                 toast.success('Dados atualizados com sucesso!');
                 setShowEditPopup(false);
                 const clienteAtualizado = { nome, email, telefone, id: idCliente };
@@ -122,7 +122,7 @@ export default function TelaCliente() {
    
     async function addFeed() {
         try {
-            await axios.post(`http://localhost:8080/addFeed/${idCliente}/${comentario}`);
+            await axios.post(`http://4.172.207.208:5005/addFeed/${idCliente}/${comentario}`);
             toast.success('Comenatario adicionado');
             setComentario('')
         } 
@@ -134,7 +134,7 @@ export default function TelaCliente() {
 
 
     async function puxarFeed() {
-            const response = await axios.get(`http://localhost:8080/aparecer/individual/${idCliente}`);
+            const response = await axios.get(`http://4.172.207.208:5005/aparecer/individual/${idCliente}`);
             let x = response.data;
             setArray(x);
     }

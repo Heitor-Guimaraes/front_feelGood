@@ -20,7 +20,7 @@ export default function InfoImovel() {
         const [galery4, setGalery4] = useState('');
         
         async function verify() {
-            const x = await axios.get(`http://localhost:8080/verifyId/${id}`);
+            const x = await axios.get(`http://4.172.207.208:5005/verifyId/${id}`);
             const value = x.data;
             console.log(value[0])
             const ret = value[0].nm_galeria.split(',')
@@ -30,19 +30,19 @@ export default function InfoImovel() {
         }
 
         async function v() {
-            const z = await axios.get(`http://localhost:8080/img/${galery[0]}`)
+            const z = await axios.get(`http://4.172.207.208:5005/img/${galery[0]}`)
             setGalery1(z.data.url)
             console.log(galery1);
 
-            const a = await axios.get(`http://localhost:8080/img/${galery[1]}`)
+            const a = await axios.get(`http://4.172.207.208:5005/img/${galery[1]}`)
             setGalery2(a.data.url)
             console.log(galery2);
 
-            const b = await axios.get(`http://localhost:8080/img/${galery[2]}`)
+            const b = await axios.get(`http://4.172.207.208:5005/img/${galery[2]}`)
             setGalery3(b.data.url)
             console.log(galery3);
 
-            const c = await axios.get(`http://localhost:8080/img/${galery[3]}`)
+            const c = await axios.get(`http://4.172.207.208:5005/img/${galery[3]}`)
             setGalery4(c.data.url)
             console.log(galery4);
         }

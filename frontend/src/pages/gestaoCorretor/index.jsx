@@ -16,7 +16,7 @@ export default function GestaoCorretor() {
 
 
     async function a() {
-        const a = await axios.get('http://localhost:8080/buscar/corretor');
+        const a = await axios.get('http://4.172.207.208:5005/buscar/corretor');
         const value = a.data;
         setArray(value);
         console.log(array);
@@ -36,7 +36,7 @@ export default function GestaoCorretor() {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:8080/atualizar/corretor/${editCorretor.nome}/${editCorretor.email}/${editCorretor.senha}/${editCorretor.id}`);
+            await axios.put(`http://4.172.207.208:5005/atualizar/corretor/${editCorretor.nome}/${editCorretor.email}/${editCorretor.senha}/${editCorretor.id}`);
             setShowPopup(false);
             a(); 
         } catch (error) {
@@ -55,7 +55,7 @@ export default function GestaoCorretor() {
     // Função para remover o corretor
     async function confirmDelete() {
         try {
-            await axios.delete(`http://localhost:8080/remover/corretor/${corretorToDelete}`);
+            await axios.delete(`http://4.172.207.208:5005/remover/corretor/${corretorToDelete}`);
             alert('Corretor removido com sucesso!');
             setShowDeletePopup(false); 
             a(); 

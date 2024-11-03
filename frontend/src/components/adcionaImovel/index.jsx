@@ -31,7 +31,7 @@ export default function NovoCard({ setExibir }) {
             const formData = new FormData();
             formData.append('img', capa);
     
-            let a = await axios.post('http://localhost:8080/multer', formData, {
+            let a = await axios.post('http://4.172.207.208:5005/multer', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -40,7 +40,7 @@ export default function NovoCard({ setExibir }) {
             const formData2 = new FormData();
             formData2.append('img', galeria);
     
-            let b = await axios.post('http://localhost:8080/multer', formData2, {
+            let b = await axios.post('http://4.172.207.208:5005/multer', formData2, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -49,7 +49,7 @@ export default function NovoCard({ setExibir }) {
             const formData3 = new FormData();
             formData3.append('img', galeria2);
     
-            let c = await axios.post('http://localhost:8080/multer', formData3, {
+            let c = await axios.post('http://4.172.207.208:5005/multer', formData3, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -58,7 +58,7 @@ export default function NovoCard({ setExibir }) {
             const formData4 = new FormData();
             formData4.append('img', galeria3);
     
-            let d = await axios.post('http://localhost:8080/multer', formData4, {
+            let d = await axios.post('http://4.172.207.208:5005/multer', formData4, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -67,7 +67,7 @@ export default function NovoCard({ setExibir }) {
             const formData5 = new FormData();
             formData5.append('img', galeria4);
     
-            let e = await axios.post('http://localhost:8080/multer', formData5, {
+            let e = await axios.post('http://4.172.207.208:5005/multer', formData5, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -81,7 +81,7 @@ export default function NovoCard({ setExibir }) {
     
             const galeriaFinal = `${nomeGaleria},${nomeGaleria2},${nomeGaleria3},${nomeGaleria4}`;
     
-            const ret = await axios.post(`http://localhost:8080/addImoveis/${nomeCapa}/${galeriaFinal}/${nome}/${status}/${regiao}/${lugar}/${suites}/${comodos}/${vagas}/${titulo}/${sobre}/${Math.ceil(Math.random()*funcionarios)}/${vendido? 1 : 0}?KEY=eyJhbGciOiJIUzI1NiJ9.MTU.DMKNoK3xOEex2gQrgyFyGNB1qEE0CqstRSDFCAo60OI`);
+            const ret = await axios.post(`http://4.172.207.208:5005/addImoveis/${nomeCapa}/${galeriaFinal}/${nome}/${status}/${regiao}/${lugar}/${suites}/${comodos}/${vagas}/${titulo}/${sobre}/${Math.ceil(Math.random()*funcionarios)}/${vendido? 1 : 0}?KEY=eyJhbGciOiJIUzI1NiJ9.MTU.DMKNoK3xOEex2gQrgyFyGNB1qEE0CqstRSDFCAo60OI`);
             console.log(ret.data.x);
             toast.success('Imovel adicionado!') 
             window.location.href = `/imovel/${ret.data.x}`;
@@ -159,7 +159,7 @@ export default function NovoCard({ setExibir }) {
     }
 
     async function select() {
-        const a = await axios.get('http://localhost:8080/selectCount');
+        const a = await axios.get('http://4.172.207.208:5005/selectCount');
         const f = a.data;
         setFuncionarios(f.rows);
         console.log(funcionarios);

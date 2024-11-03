@@ -51,7 +51,7 @@ export default function CadastroCliente() {
             const x = formatDate(date);
             console.log(x);
     
-            await axios.put(`http://localhost:8080/addClient/${x}/${email}`);
+            await axios.put(`http://4.172.207.208:5005/addClient/${x}/${email}`);
 
             setTimeout(() => {
                 navigate('/loginCliente')

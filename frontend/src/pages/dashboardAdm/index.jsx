@@ -15,7 +15,7 @@ export default function DashboardAdm() {
 //total imovel
     async function imoveisTotais() {
         try {
-            const response = await axios.get('http://localhost:8080/total/imoveis');
+            const response = await axios.get('http://4.172.207.208:5005/total/imoveis');
             console.log(response.data); 
             if (response.data && response.data.total_imoveis !== undefined) {
                 setTotalImoveis(response.data.total_imoveis);
@@ -34,7 +34,7 @@ export default function DashboardAdm() {
 //total corretor
 async function corretorTotal() {
     try {
-        const response = await axios.get('http://localhost:8080/total/corretor');
+        const response = await axios.get('http://4.172.207.208:5005/total/corretor');
         console.log(response.data); 
         if (response.data && response.data.total_corretores !== undefined) {
             setTotalCorretor(response.data.total_corretores);
@@ -55,7 +55,7 @@ useEffect(() => {
 
 async function clienteTotal() {
     try {
-        const response = await axios.get('http://localhost:8080/total/cliente');
+        const response = await axios.get('http://4.172.207.208:5005/total/cliente');
         console.log(response.data); 
         if (response.data && response.data.total_clientes !== undefined) {
             setTotalCliente(response.data.total_clientes);
@@ -75,8 +75,8 @@ useEffect(() => {
 // grafico
     async function fetchData() {
         try {
-            const vendidosResponse = await axios.get('http://localhost:8080/buscaSim');
-            const naoVendidosResponse = await axios.get('http://localhost:8080/buscaNao');
+            const vendidosResponse = await axios.get('http://4.172.207.208:5005/buscaSim');
+            const naoVendidosResponse = await axios.get('http://4.172.207.208:5005/buscaNao');
             
             const vendidos = vendidosResponse.data.total_vendidos; 
             const naoVendidos = naoVendidosResponse.data.total_nao_vendidos;

@@ -12,7 +12,7 @@ export default function Sobre() {
 
 
     async function feedBacks() {
-        const api = await axios.get('http://localhost:8080/aparecerFeed');
+        const api = await axios.get('http://4.172.207.208:5005/aparecerFeed');
         let values = api.data;
         setArray(values)
         console.log(array);

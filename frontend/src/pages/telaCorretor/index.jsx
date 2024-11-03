@@ -23,9 +23,9 @@ export default function TelaCorretor() {
 
 
     async function findNameImg() {
-        const x = await axios.get(`http://localhost:8080/find/${idCorretor}`);
+        const x = await axios.get(`http://4.172.207.208:5005/find/${idCorretor}`);
         if (x.data.nm_foto != null) {
-            const z = await axios.get(`http://localhost:8080/img/${x.data.nm_foto}`);
+            const z = await axios.get(`http://4.172.207.208:5005/img/${x.data.nm_foto}`);
             setNameImg(z.data.url);
         } else {
             setNameImg(x.data.nm_foto);
@@ -59,19 +59,19 @@ export default function TelaCorretor() {
     
     
     async function imovelPorCorretor() {
-        const response = await axios.get(`http://localhost:8080/imovelPorCorretor/${idCorretor}`);
+        const response = await axios.get(`http://4.172.207.208:5005/imovelPorCorretor/${idCorretor}`);
         setArray(response.data);
       }
 
     async function totalImovelCorretor() {
-        const response = await axios.get(`http://localhost:8080/totalImovel/porCorretor/${idCorretor}`);
+        const response = await axios.get(`http://4.172.207.208:5005/totalImovel/porCorretor/${idCorretor}`);
         let x = response.data
         console.log(response.data)
         setTotalImovel(x.total)
     }
 
     async function vendidoCorretor() {
-        const response = await axios.get(`http://localhost:8080/totalvendido/porCorretor/${idCorretor}`);
+        const response = await axios.get(`http://4.172.207.208:5005/totalvendido/porCorretor/${idCorretor}`);
         let x = response.data;
         setImovelVendido(x.total_vendidos)
     }
@@ -101,20 +101,20 @@ export default function TelaCorretor() {
                 const formData = new FormData();
                 formData.append('img', foto);
             
-                const x = await axios.post(`http://localhost:8080/multer`, formData, {
+                const x = await axios.post(`http://4.172.207.208:5005/multer`, formData, {
                     headers: {
                         "Content-Type": "multparts/formdata"
                     }
                 });
 
                 setShowPopup(false);
-                await axios.put(`http://localhost:8080/addPictureCorretor/${x.data.fl}/${idCorretor}`);
+                await axios.put(`http://4.172.207.208:5005/addPictureCorretor/${x.data.fl}/${idCorretor}`);
                 toast.success('foto atualizada');
 
             }
 
             if(nome.length > 0  && email.length > 0 && telefone.length > 0 ) {
-                await axios.put(`http://localhost:8080/atualizar/corretor/${editCorretor.nome}/${editCorretor.email}/${editCorretor.senha}/${editCorretor.telefone}/${idCorretor}`);
+                await axios.put(`http://4.172.207.208:5005/atualizar/corretor/${editCorretor.nome}/${editCorretor.email}/${editCorretor.senha}/${editCorretor.telefone}/${idCorretor}`);
            
                 setShowPopup(false);
                 imovelPorCorretor();

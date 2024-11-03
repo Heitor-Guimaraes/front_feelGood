@@ -10,7 +10,7 @@ export default function ComentarioFeed({nome, comentario, foto}) {
     async function a() {
         console.log(foto)
         if (foto != null) {
-            const x = await axios.get(`http://localhost:8080/img/${foto}`);
+            const x = await axios.get(`http://4.172.207.208:5005/img/${foto}`);
             setImg(x.data.url);
             console.log(x);
         } else {

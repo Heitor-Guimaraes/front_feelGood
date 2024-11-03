@@ -14,7 +14,7 @@ export default function GestaoImovel() {
   const [array, setArray] = useState([]);
 
   async function buscarImoveis() {
-    const response = await axios.get('http://localhost:8080/buscarImovel');
+    const response = await axios.get('http://4.172.207.208:5005/buscarImovel');
     setArray(response.data);
   }
 
@@ -35,7 +35,7 @@ export default function GestaoImovel() {
   async function confirmarRemocao() {
     try {
       console.log(idSelecionadoLixo); 
-      await axios.delete(`http://localhost:8080/deletar/imovel/${idSelecionadoLixo}`);
+      await axios.delete(`http://4.172.207.208:5005/deletar/imovel/${idSelecionadoLixo}`);
       fecharPopup();
       buscarImoveis();
     } catch (error) {
@@ -59,7 +59,7 @@ export default function GestaoImovel() {
   async function confirmarEdicao() {
     try {
         
-        const response = await axios.put(`http://localhost:8080/atualizar/venda/${idSelecionado}`, { vendido });
+        const response = await axios.put(`http://4.172.207.208:5005/atualizar/venda/${idSelecionado}`, { vendido });
         console.log("Resposta da API:", response.data); 
         fecharEdicaoPopup();
         alert('Status de venda atualizado com sucesso!');

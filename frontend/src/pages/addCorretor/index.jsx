@@ -1,3 +1,4 @@
+
 import './index.scss';
 import { Link } from 'react-router-dom';
 import CabecalhoADM from '../../components/cabecalhoADM';
@@ -20,7 +21,8 @@ export default function AddCorretor() {
             telefone: telefone
         }
 
-        let url = `http://localhost:8080/addCorretor`;
+
+        let url = `http://4.172.207.208:5005/addCorretor`;
         let resp = await axios.post(url, corretorObj);
         toast.success('corretor adicionado')
         setEmail('')
